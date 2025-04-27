@@ -1,0 +1,129 @@
+.incident-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 0;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.incident-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: #ddd;
+  transition: width 0.3s ease;
+}
+
+.incident-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: #ddd;
+}
+
+.incident-card:hover::before {
+  width: 6px;
+}
+
+.incident-card h3 {
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-bottom: 12px;
+  font-weight: 600;
+  position: relative;
+}
+
+.incident-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.4;
+  transition: width 0.3s ease;
+}
+
+.incident-card:hover h3::after {
+  width: 70px;
+}
+
+.incident-card p {
+  font-size: 1.05rem;
+  color: #4b5563;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.incident-card strong {
+  color: #374151;
+}
+
+.incident-card .details {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(243, 244, 246, 0.85);
+  border-left: 4px solid #ddd;
+  border-radius: 8px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.incident-card button {
+  margin-top: 20px;
+  padding: 12px 22px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #4b5563;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.incident-card button:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  border-color: #ccc;
+  color: #1f2937;
+}
+
+
+.incident-card[data-severity="High"]::before {
+  background: #ef4444;
+}
+.incident-card[data-severity="Medium"]::before {
+  background: #f59e0b;
+}
+.incident-card[data-severity="Low"]::before {
+  background: #10b981;
+}
+
+.incident-card[data-severity="High"] h3 {
+  color: #dc2626;
+}
+.incident-card[data-severity="Medium"] h3 {
+  color: #d97706;
+}
+.incident-card[data-severity="Low"] h3 {
+  color: #059669;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

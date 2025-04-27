@@ -1,0 +1,114 @@
+.incident-list {
+  margin: 40px 0;
+  padding: 35px;
+  background: #f9fafb;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.incident-list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc, #43cea2);
+  background-size: 300% 300%;
+  animation: gradientFlow 8s ease infinite;
+}
+
+
+.incident-list .incident-card {
+  margin-bottom: 28px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.incident-list .incident-card:nth-child(odd) {
+  transform: translateX(-12px);
+  opacity: 0.95;
+}
+
+.incident-list .incident-card:nth-child(even) {
+  transform: translateX(12px);
+  opacity: 0.95;
+}
+
+.incident-list .incident-card:hover {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+}
+
+.incident-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.incident-list-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  position: relative;
+  padding-left: 20px;
+}
+
+.incident-list-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 36px;
+  background: linear-gradient(to bottom, #43cea2, #185a9d);
+  border-radius: 4px;
+}
+
+.incident-list-count {
+  background: #43cea2;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 24px;
+  font-weight: 600;
+  box-shadow: 0 3px 12px rgba(67, 206, 162, 0.4);
+}
+
+
+.incident-list-empty {
+  text-align: center;
+  padding: 60px 30px;
+  background: #f3f4f6;
+  border-radius: 16px;
+  border: 2px dashed rgba(67, 206, 162, 0.3);
+}
+
+.incident-list-empty-icon {
+  font-size: 3rem;
+  color: #9ca3af;
+  margin-bottom: 20px;
+}
+
+.incident-list-empty-text {
+  font-size: 1.3rem;
+  color: #6b7280;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

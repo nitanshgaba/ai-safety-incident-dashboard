@@ -1,0 +1,124 @@
+.filter-buttons-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(245, 245, 245, 0.8));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.filter-button {
+  position: relative;
+  background: transparent;
+  color: #4b5563;
+  padding: 14px 26px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+  min-width: 95px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(240, 242, 245, 0.6);
+  z-index: -1;
+  transition: all 0.4s ease;
+  border-radius: 10px;
+}
+
+.filter-button:hover {
+  color: #1f2937;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.filter-button:hover::before {
+  background: rgba(240, 242, 245, 0.9);
+}
+
+.filter-button.active {
+  color: #1f2937;
+  font-weight: 600;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.filter-button.active::before {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+
+.filter-button:nth-child(1).active {
+  color: #6366f1;
+}
+.filter-button:nth-child(2).active {
+  color: #ec4899;
+}
+.filter-button:nth-child(3).active {
+  color: #f97316;
+}
+.filter-button:nth-child(4).active {
+  color: #10b981;
+}
+
+
+.filter-button::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.filter-button.active::after {
+  width: 60%;
+}
+
+
+.filter-button:nth-child(1):hover {
+  color: #6366f1;
+}
+.filter-button:nth-child(2):hover {
+  color: #ec4899;
+}
+.filter-button:nth-child(3):hover {
+  color: #f97316;
+}
+.filter-button:nth-child(4):hover {
+  color: #10b981;
+}
+
+
+.filter-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+
+.filter-button.active {
+  animation: none;
+}
